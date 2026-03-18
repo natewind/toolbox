@@ -200,12 +200,16 @@ def read_metadata(audio: FLAC) -> Table:
 		read_tag(audio, "TRACKNUMBER") or 0
 	)
 
-	metadata.setdefault("lyrics", {})["languages"] = read_tag(audio, "LANGUAGE").split(
-		LIST_SEPARATOR
+	languages = read_tag(audio, "LANGUAGE")
+
+	metadata.setdefault("lyrics", {})["languages"] = (
+		[] if languages == "" else languages.split(LIST_SEPARATOR)
 	)
 
-	metadata.setdefault("lyrics", {})["authors"] = read_tag(audio, "LYRICIST").split(
-		LIST_SEPARATOR
+	authors = read_tag(audio, "LYRICIST")
+
+	metadata.setdefault("lyrics", {})["authors"] = (
+		[] if authors == "" else authors.split(LIST_SEPARATOR)
 	)
 
 	text = read_tag(audio, "LYRICS")
