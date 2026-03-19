@@ -18,7 +18,7 @@ from tomlkit.items import Table
 LIST_SEPARATOR = ", "
 
 
-LossyCodec = Literal["MP3", "Opus", "Vorbis"]
+LossyCodec = Literal["MP3", "Opus", "Vorbis", "Unknown"]
 
 TuneType = Literal[
 	"An dro",
@@ -274,6 +274,7 @@ def main():
 	    MP3
 	    Opus
 	    Vorbis
+		Unknown
 
 	(Albums are otherwise pointless, but many players display them in the UI,
 	which makes them a convenient place to put the tune types for dancing playlists.)
