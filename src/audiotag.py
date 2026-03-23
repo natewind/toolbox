@@ -306,10 +306,12 @@ def main():
 
 
 @main.command(help="Read metadata from FLAC and save to TOML.")
-def read():
+@click.argument("pattern", required=False, default="*.flac", nargs=-1)
+def read(pattern: tuple[str]):
 	target = Path(".")
 
-	for audio_path in target.glob("*.flac"):
+	for filename in pattern:
+		audio_path = target / filename
 		audio = FLAC(audio_path)
 		metadata = read_metadata(audio)
 		toml_data = tomlkit.dumps(metadata)
