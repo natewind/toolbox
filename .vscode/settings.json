@@ -1,6 +1,0 @@
-{
-	"editor.formatOnSave": true,
-	"[json][toml]": {
-		"editor.formatOnSave": false
-	}
-}
