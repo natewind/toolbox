@@ -46,7 +46,7 @@ class Profile(BaseModel):
 	BASE_URL: ClassVar[dict[Platform, str]] = {
 		"instagram": "instagram.com",
 		"telegram": "t.me",
-		"vk": "vk.com",
+		"vk": "vk.ru",
 	}
 
 	def link(self, platform: Platform) -> str:
