@@ -5,8 +5,13 @@ edition = "2024"
 
 [dependencies]
 clap = { version = "4", features = ["derive", "env"] }
+itertools = "0.15"
 owo-colors = "4.4.0"
 
 [[bin]]
 name = "gofind"
 path = "src/gofind.rs"
+
+[[bin]]
+name = "list"
+path = "src/list.rs"

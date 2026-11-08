@@ -1,9 +1,11 @@
 pub mod log
 {
+	use std::fmt::Display;
+
 	use owo_colors::OwoColorize;
 
-	pub fn warning(text: &str) { eprintln!("{} {text}", "Warning:".yellow().bold()) }
-	pub fn error(text: &str) { eprintln!("{} {text}", "Error:".red().bold()) }
+	pub fn warning(text: impl Display) { eprintln!("{} {text}", "Warning:".yellow().bold()) }
+	pub fn error(text: impl Display) { eprintln!("{} {text}", "Error:".red().bold()) }
 }
 
 #[macro_export]
