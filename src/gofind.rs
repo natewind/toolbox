@@ -27,7 +27,7 @@ struct Cli
 	#[arg(long, value_name = "NAME")]
 	exclude: Vec<String>,
 
-	/// Path or directory name find
+	/// Path or directory name to find
 	query: String,
 }
 
@@ -79,7 +79,7 @@ fn main() -> ExitCode
 		},
 
 		NotFound => {
-			log::error("No matching location found!");
+			log::error("No matching directory found!");
 			ExitCode::FAILURE
 		},
 
