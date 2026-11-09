@@ -128,7 +128,10 @@ fn list_contents(path: &Path, all: bool) -> io::Result<()>
 		.map(|entry| entry.and_then(ListEntry::try_from))
 		.collect::<io::Result<_>>()?;
 
-	entries.retain(|it| all || !it.name.starts_with('.'));
+	if !all {
+		entries.retain(|it| !it.name.starts_with('.'));
+	}
+
 	entries.sort();
 
 	entries
